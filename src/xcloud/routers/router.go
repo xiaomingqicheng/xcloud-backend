@@ -78,6 +78,16 @@ func init() {
 				&controllers.ConfigmapController{},
 			),
 		),
+		beego.NSNamespace("/namespace",
+			beego.NSRouter(
+				"/",&controllers.ConfigmapController{},"get:GetNamespace",
+			),
+		),
+		beego.NSNamespace("/containerwebshell",
+			beego.NSRouter(
+				"/",&controllers.ContainerWebshellController{},"get:WsHandler",
+			),
+		),
 	)
 	//web.AddNamespace(ns)
 	beego.AddNamespace(ns)
