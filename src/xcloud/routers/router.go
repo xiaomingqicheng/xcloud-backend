@@ -88,6 +88,16 @@ func init() {
 				"/",&controllers.ContainerWebshellController{},"get:WsHandler",
 			),
 		),
+		beego.NSNamespace("/buildlog",
+			beego.NSRouter(
+				"/",&controllers.ProjectbuildController{},"get:Ws",
+			),
+		),
+		beego.NSNamespace("/getbuildresult",
+			beego.NSRouter(
+				"/",&controllers.ProjectbuildController{},"get:GetBuildResult",
+			),
+		),
 	)
 	//web.AddNamespace(ns)
 	beego.AddNamespace(ns)
